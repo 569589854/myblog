@@ -1,0 +1,14 @@
+/*
+* @Author: Mack
+* @Date:   2016-11-21 09:22:42
+* @Last Modified by:   Mack
+* @Last Modified time: 2017-01-14 14:21:43
+*/
+.content-box{
+    padding-top: 40px;
+    max-height: 900px;
+}
+
+.input-group .form-control{
+    z-index: 0;
+}

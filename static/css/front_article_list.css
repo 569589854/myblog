@@ -1,0 +1,27 @@
+/*
+* @Author: Mack
+* @Date:   2017-01-18 23:45:29
+* @Last Modified by:   Mack
+* @Last Modified time: 2017-01-23 15:38:03
+*/
+h3 a:hover{
+    text-decoration: none;
+}
+
+.article-info{
+    text-align: right;
+}
+
+.thumbnail-box img{
+    width: 100%;
+    height: 80px;
+    min-height: 170px;
+    max-height: 170px;
+}
+
+.load-more-btn{
+    width: 200px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}

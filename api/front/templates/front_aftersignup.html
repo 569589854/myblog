@@ -1,0 +1,25 @@
+{% extends "cms_bootstrap.html" %}
+
+{% block headblock %}
+	{{block.super}}
+    <script>
+        $(function(){
+            var secondTag = $('.second-down');
+            var secondCount = 5;
+            setInterval(function(){
+                secondCount -= 1;
+                secondTag.html(secondCount);
+                if(secondCount<-10){
+                    window.location = '/cms/';
+                }
+            },1000);
+        });
+    </script>
+{% endblock headblock %}
+
+{% block bodyblock %}
+	<div class="alert alert-success">
+		邮件发送成功，请登录邮箱进行验证，<span class="second-down">5</span>秒后返回原页面！
+		<meta http-equiv="refresh" content="3;url={{refresh_url}}">
+	</div>
+{% endblock bodyblock %}

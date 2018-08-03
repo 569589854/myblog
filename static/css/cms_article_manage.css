@@ -1,0 +1,26 @@
+/*
+* @Author: Mack
+* @Date:   2017-01-16 10:36:26
+* @Last Modified by:   Mack
+* @Last Modified time: 2017-01-16 10:56:28
+*/
+
+.table td:nth-of-type(1){
+    width: 50%;
+}
+
+.table th{
+    text-align: center;
+}
+
+.table th:nth-of-type(1){
+    text-align: left;
+}
+
+.page-nav{
+    text-align: center;
+}
+
+.top-title-word{
+    color: #ff5500;
+}

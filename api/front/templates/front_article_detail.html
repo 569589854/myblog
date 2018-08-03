@@ -1,0 +1,75 @@
+{% extends "front_index.html" %}
+{% load static %}
+
+{% block headblock %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/front_article_detail.css' %}">
+    <script src="{% static 'js/front_qiniu.js' %}"></script>
+    <script>
+        //阻止默认行为
+        $(function(){
+            $('.front_user').click(function (event) {
+                event.preventDefault();
+            });
+        });
+    </script>
+    {# 加入七牛sdk #}
+    <script src="https://cdn.staticfile.org/Plupload/2.1.1/moxie.js"></script>
+    <script src="https://cdn.staticfile.org/Plupload/2.1.1/plupload.dev.js"></script>
+    <script src="https://cdn.staticfile.org/qiniu-js-sdk/1.0.14-beta/qiniu.js"></script>
+{% endblock headblock %}
+
+{% block detailblock %}
+    <h2 class="page-header article-title" data-category-id="{{c_category.id}}">
+        {{articles.title}}
+    </h2>
+    <div class="article-info">
+        <span>发表时间：{{articles.public_date|date:"Y/m/d h:i"}}</span>
+        <span>类型：{{articles.category.name}}</span>
+        <span>作者：{{articles.author.username}}</span>
+    </div>
+
+    <div class="tag-box">
+        {% for tag in tags %}
+            <span class="label label-default">{{tag.name}}</span>
+        {% endfor %}
+    </div>
+
+    <div class="article-content_html">
+        {{articles.content_html|safe}}
+    </div>
+    <h4 class="comment-title">评论({{comments|length}})</h4>
+    <ul class="comment-ul">
+        {% for comment in comments %}
+            <li>
+                <div class="user-info">
+                    <div class="user-left">
+                        <a href="#" class="front_user"><img src="{{comment.author.portrait}}" alt=""></a>
+                    </div>
+                    <div class="user-right">
+                        {# 获取相应账号的头像 #}
+                        <p><a href="" class="front_user">{{comment.author.username}}</a></p>
+                        <p>{{comment.create_time|date:'Y/m/d H:i'}}</p>
+                    </div>
+                </div>
+                <div class="comment-content">
+                    <p>{{comment.content}}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="comment-box"> 
+        <form action="{% url 'front_comment' %}" method="POST">
+            {% if front_user %}
+                <textarea name="content" placeholder="请填写评论~" id="" class="comment-textarea"></textarea>
+                <input type="hidden" name="article_id" value={{articles.uid}}>
+                <button class="btn btn-primary" type="submit">评论</button>
+            {% else %}
+                <div class="well" id="well">
+                    <div class="panel-heading" id="cannot-comment">您需要登录后才可以评论 <a href="{% url 'front_signin' %}">登录</a> | <a href="{% url 'front_signup' %}">注册</a></div>
+                </div>
+                <button class="btn btn-primary" disabled="disabled" type="submit">评论</button>
+            {% endif %}
+        </form>
+    </div>
+{% endblock detailblock %}

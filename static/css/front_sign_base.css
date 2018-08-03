@@ -1,0 +1,32 @@
+/*
+* @Author: Mack
+* @Date:   2017-01-21 20:11:43
+* @Last Modified by:   Mack
+* @Last Modified time: 2017-01-21 20:58:03
+*/
+.logo-box{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.sign-box{
+    text-align: center;
+    font-size: 20px;
+    height: 15px;
+    border-bottom: 1px solid #eee;
+    margin-top: 50px;   
+}
+
+.sign-box a:hover{
+    text-decoration: none;
+}
+
+.sign-inner-box{
+    background: #fff;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.glyphicon{
+    top: 0;
+}

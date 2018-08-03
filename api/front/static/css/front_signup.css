@@ -1,0 +1,23 @@
+/*
+* @Author: Mack
+* @Date:   2017-01-21 21:07:24
+* @Last Modified by:   Mack
+* @Last Modified time: 2017-01-22 21:40:16
+*/
+.sign-form{
+    width: 270px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.captcha-span img{
+    height: 25px;
+}
+
+.captcha-span{
+    padding: 2px;
+}
+
+.captcha-img{
+    cursor: pointer;
+}

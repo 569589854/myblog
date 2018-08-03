@@ -1,0 +1,26 @@
+{% extends "cms_bootstrap.html" %}
+
+{% block headblock %}
+	{{block.super}}
+    <script>
+        $(function(){
+            var secondTag = $('.second-down');
+            var secondCount = 3;
+            setInterval(function(){
+                secondCount -= 1;
+                secondTag.html(secondCount);
+                if(secondCount<-10){
+                    window.location = '/cms/';
+                }
+            },1000);
+        });
+    </script>
+{% endblock headblock %}
+
+{% block bodyblock %}
+	<div class="alert alert-success">
+		<span class="second-down">3</span>秒后转入如下链接，若长时间没有响应请直接点击：
+		<p><a href="{{refresh_url}}">{{refresh_url}}</a></p>
+		<meta http-equiv="refresh" content="3;url={{refresh_url}}">
+	</div>
+{% endblock bodyblock %}

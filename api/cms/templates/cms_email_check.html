@@ -1,0 +1,9 @@
+{% extends "cms_email_base.html" %}
+
+{% block headblock %}
+    
+{% endblock headblock %}
+
+{% block bodyblock %}
+    <div class="alert alert-warning">抱歉,该邮箱不存在,请输入正确的邮箱！<a class="alert-link"  href="{% url 'cms_update_email' %}">重新输入</a></div>
+{% endblock bodyblock %}

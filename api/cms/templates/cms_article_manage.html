@@ -1,0 +1,87 @@
+{% extends "cms_base_manage.html" %}
+{% load static %}
+
+{% block headblock %}
+    {{block.super}}
+    <link rel="stylesheet" href="{% static 'css/cms_article_manage.css' %}">
+    <script src="{% static 'js/cms_article_manage.js' %}"></script>
+
+{% endblock headblock %}
+{% block detailblock %}
+    <div class="row">
+        <div class="input-group col-md-8 col-sm-8">
+            <span class="input-group-addon">按类型</span>
+            <select name="" id="category-select" class="form-control">
+                <option value="0">All</option>
+                {% for category in categorys %}
+                    <option value="{{category.id}}" {% if category.id == c_category %}
+                        selected="selected" 
+                    {% endif %}>{{category.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <th>标题</th>
+                <th>发表时间</th>
+                <th>类型</th>
+                <th>阅读</th>
+                <th>评论</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                    <tr>
+                        <td><a href="#" class="article-title">
+                            {% if article.top %}
+                                <span class="top-title-word">[置顶]</span>
+                            {% endif %}
+                            {{article.title}}
+                        </a></td>
+                        <td>{{article.public_date|date:'Y年m月d日 H:i:s'}}</td>
+                        <td>{{article.category.name}}</td>
+                        <td>{{article.read_count}}</td>
+                        <td>{{article.comment_count}}</td>
+                        <td data-article-id={{article.uid}}>
+                            <a href="{% url 'cms_editblog' pk=article.uid %}">编辑</a>
+                            <a href="#" class="top-article-btn">
+                                {% if article.top %}
+                                    取消置顶
+                                {% else %}
+                                    置顶
+                                {% endif %}
+                            </a>
+                            <a href="#" class="delete-article-btn">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <nav class="page-nav">
+            <ul class="pagination">
+                {# 若当前为第一页,设置"<<"按钮 disabled 不可用 #}
+                {% if c_page <= 1 %}
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                {% else %}
+                {# 注意翻页: page|add:(-)A  向前或向后翻A页 #}
+                    <li><a href="{% url 'cms_article_manage' page=c_page|add:-1 category_id=c_category %}">&laquo;</a></li>
+                {% endif %}
+
+                {% for page in pages %}
+                    <li {% if c_page == page %} class="active"{% endif %}><a href="{% url 'cms_article_manage' page=page category_id=c_category %}">{{page}}</a></li>
+                {% endfor %}
+                
+                {# 若当前为尾页,设置">>"按钮 disabled 不可用 #}
+                {% if c_page == t_page %}
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                {% else %}
+                    <li><a href="{% url 'cms_article_manage' page=c_page|add:1 category_id=c_category %}">&raquo;</a></li>
+                {% endif %}       
+            </ul>
+        </nav>
+    </div>
+{% endblock detailblock %}

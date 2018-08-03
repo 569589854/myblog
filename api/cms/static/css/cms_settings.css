@@ -1,0 +1,29 @@
+/*
+* @Author: Mack
+* @Date:   2016-11-07 11:23:43
+* @Last Modified by:   Mack
+* @Last Modified time: 2016-11-16 10:52:01
+*/
+.centent-box{
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+.alert-success{
+    display: none;
+}
+
+h1,.alert-success{
+    text-align: center;
+}
+
+.container{
+    max-width: 400px;
+}
+
+#pickfiles{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

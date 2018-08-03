@@ -1,0 +1,103 @@
+/*
+* @Author: Mack
+* @Date:   2017-01-20 09:56:19
+* @Last Modified by:   56958
+* @Last Modified time: 2017-02-26 21:57:52
+*/
+h2.article-title{
+    text-align: center;
+}
+
+.article-info{
+    text-align: center;
+}
+
+.article-info span{
+    margin-right: 20px;
+}
+
+.tag-box{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.article-content_html{
+    margin-top: 20px;
+}
+
+.comment-title{
+    margin-top: 50px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px; 
+}
+
+.user-info{
+    overflow: hidden;
+}
+
+.user-info .user-left,.user-right{
+    float: left;
+}
+
+.user-left img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-right{
+    margin-left: 10px;
+}
+
+div.comment-content{
+    margin-left: 50px;
+}
+
+.comment-ul{
+    margin-top: 12px;
+}
+
+.comment-ul li{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.comment-ul a{
+    text-decoration: none;
+}
+
+.comment-ul{
+    padding-left: 0px;
+}
+
+.comment-textarea{
+    outline: none;
+    resize: vertical;
+    display: block;
+    width: 100%;
+    border: none;
+    background: #f5f5f5;
+    padding: 10px;
+}
+
+.comment-box{
+    text-align: right;
+}
+
+.comment-box button{
+    margin-top: 10px;
+}
+
+.comment-ul li{
+    list-style: none;
+}
+
+#cannot-comment{
+    line-height: 60px;
+    text-align: center;
+}
+
+#well{
+    height: 120px;
+}

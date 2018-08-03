@@ -1,0 +1,20 @@
+/*
+* @Author: Mack
+* @Date:   2017-01-21 20:51:35
+* @Last Modified by:   Mack
+* @Last Modified time: 2017-01-21 21:05:25
+*/
+.sign-form{
+    width: 270px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.remember-me{
+    float: left;
+    margin-top: 0;
+}
+
+.forgetpwd{
+    float: right;
+}

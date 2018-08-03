@@ -1,0 +1,14 @@
+/*
+* @Author: 56958
+* @Date:   2017-02-25 14:13:19
+* @Last Modified by:   56958
+* @Last Modified time: 2017-02-25 14:13:23
+*/
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.dropdown-toggle:hover .caret{
+    /*css3 绕Z轴旋转180°*/
+    transform: rotateZ(180deg);
+}
